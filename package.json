@@ -4,7 +4,7 @@
   "description": "Use raw Javascript to get local times and dates",
   "main": "app.js",
   "scripts": {
-    "test": "na"
+    "test": "node tests.js"
   },
   "repository": {
     "type": "git",
