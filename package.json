@@ -1,6 +1,6 @@
 {
   "name": "ez-local-time",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Use raw Javascript to get local times and dates",
   "main": "app.js",
   "scripts": {
