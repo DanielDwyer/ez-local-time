@@ -1,35 +1,57 @@
 'use strict'
-
-module.exports = function(dt, r){
-
-  if(r === ''){
-    //no region specified, base off of runtime environment
-    if(dt === 'd'){
-      //date only
-      var d = new Date().toLocaleString('en-US', { timeZone: 'UTC' })
+module.exports = function(region, response){
+  if(region === ''){
+    if(response === ''){
+      return new Date().toLocaleString('en-US', { timeZone: 'utc' })
+    }else if(!response){
+      return new Date().toLocaleString('en-US', { timeZone: 'utc' })
+    }else if(response === 'date' || response === 'd'){
+      var d = new Date().toLocaleString('en-US', { timeZone: 'utc' })
       d= d.substring(0, d.indexOf(','))
       return d;
-    }else if(dt === 't'){
-      //time only
-    }else{
-      //date and time
-    }
-  }else{
-    //region is specified
-    if(dt === 'd'){
-      //date only
-      var d = new Date().toLocaleString('en-US', { timeZone: r })
-      d= d.substring(0, d.indexOf(','))
-      return d;
-    }else if(dt === 't'){
-      //time only
-      var t = new Date().toLocaleString('en-US', { timeZone: r })
+    }else if(response === 'time' || response === 't'){
+      var t = new Date().toLocaleString('en-US', { timeZone: 'utc' })
       t= t.substring(t.indexOf(',')+2, t.length)
       return t;
-    }else{
+    }else if(response === '*'){
+      return new Date().toLocaleString('en-US', { timeZone: 'utc' })
+    }
+  }else if(!region){
+    if(response === ''){
+      return new Date().toLocaleString('en-US', { timeZone: 'utc' })
+    }else if(!response){
+      return new Date().toLocaleString('en-US', { timeZone: 'utc' })
+    }else if(response === 'date' || response === 'd'){
+      var d = new Date().toLocaleString('en-US', { timeZone: 'utc' })
+      d= d.substring(0, d.indexOf(','))
+      return d;
+    }else if(response === 'time' || response === 't'){
+      var t = new Date().toLocaleString('en-US', { timeZone: 'utc' })
+      t= t.substring(t.indexOf(',')+2, t.length)
+      return t;
+    }else if(response === '*'){
+      return new Date().toLocaleString('en-US', { timeZone: 'utc' })
+    }
+  }else{
+    if(response === ''){
       //date and time
-      return new Date().toLocaleString('en-US', { timeZone: r })
+        return new Date().toLocaleString('en-US', { timeZone: region })
+    }else if(!response){
+      //date and time
+        return new Date().toLocaleString('en-US', { timeZone: region })
+    }else if(response === 'date' || response === 'd'){
+      //region specified & date only
+        var d = new Date().toLocaleString('en-US', { timeZone: region })
+        d= d.substring(0, d.indexOf(','))
+        return d;
+    }else if(response === 'time' || response === 't'){
+      //time only
+        var t = new Date().toLocaleString('en-US', { timeZone: region })
+        t= t.substring(t.indexOf(',')+2, t.length)
+        return t;
+    }else if(response === '*'){
+      //date and time
+        return new Date().toLocaleString('en-US', { timeZone: region })
     }
   }
-
 }
