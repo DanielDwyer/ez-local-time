@@ -1,0 +1,23 @@
+{
+  "name": "local-time",
+  "version": "0.0.1",
+  "description": "Use raw Javascript to get local times and dates",
+  "main": "app.js",
+  "scripts": {
+    "test": "na"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github-github_personal:DanielDwyerPersonal/Local-Time.git"
+  },
+  "keywords": [
+    "moment",
+    "time",
+    "local",
+    "time",
+    "timezone",
+    "Date.now()"
+  ],
+  "author": "danielpatrickdwyer@gmail.com",
+  "license": "MIT"
+}
