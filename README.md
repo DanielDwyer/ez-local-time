@@ -2,7 +2,7 @@
 # ez-local-time
 
 **Note: In Development! Expect Changes before March 1, 2018**
-**The 1st Stable Version (for production use) will be 1.0.0
+**The 1st Stable Version (for production use) will be 1.0.0**
 
 ![Downloads](https://img.shields.io/npm/dw/ez-local-time.svg)
 ![Downloads](https://img.shields.io/npm/dm/ez-local-time.svg)
