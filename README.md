@@ -1,6 +1,8 @@
 
 # ez-local-time
 
+**Note: In Development! Expect Changes before March 1, 2018**
+
 ![Downloads](https://img.shields.io/npm/dw/ez-local-time.svg)
 ![Downloads](https://img.shields.io/npm/dm/ez-local-time.svg)
 ![Downloads](https://img.shields.io/npm/dt/ez-local-time.svg)
@@ -29,7 +31,7 @@ npm i ez-local-time
 
 
 ## Example
-Note: If you are using ES6, think React, (import and not require) you must compile your application code before interacting with the ez-local-time module.
+Note: If you are using ES6, i.e. React, (import and not require) you must compile your application code before interacting with the ez-local-time module.
 
 ```js
 'use strict'
