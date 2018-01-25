@@ -47,7 +47,7 @@ const HollywoodDate = localTime('pacific', 'd')
 ```
 Get Localized Time & Date:
 ```shell
-const BigAppleTime&Date = localTime('east', '*')
+const BigAppleTimeAndDate = localTime('east', '*')
 ```
 
 ## Parameters
