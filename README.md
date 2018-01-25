@@ -1,8 +1,8 @@
 # ez-local-time
 
-**Note: In Development! Expect Changes before March 1, 2018. **
-** The 1st Stable Version (for production use) will be 1.0.0..**
-** I was shocked to see 96 downloads on day # 1. I will do my best to get this up and running. **
+**Note: In Development! Expect Changes before March 1, 2018.**
+**The 1st Stable Version (for production use) will be 1.0.0..**
+**I was shocked to see 96 downloads on day # 1. I will do my best to get this up and running.**
 
 ![Downloads](https://img.shields.io/npm/dw/ez-local-time.svg)
 ![Downloads](https://img.shields.io/npm/dm/ez-local-time.svg)
