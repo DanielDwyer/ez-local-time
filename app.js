@@ -1,5 +1,14 @@
 'use strict'
 module.exports = function(region, response){
+  if(region === 'Pac' || region === 'pac' || region === 'Pacific' || region === 'pacific'){
+    region = 'America/Los_Angeles'
+  }else if(region === 'Mtn' || region === 'mtn' || region === 'Mountain' || region === 'mountain'){
+    region = 'America/Denver'
+  }else if(region === 'Cen' || region === 'cen' || region === 'Central' || region === 'central'){
+    region = 'America/Chicago'
+  }else if(region === 'Eas' || region === 'eas' || region === 'East' || region === 'east'){
+    region = 'America/New_York'
+  }
   if(region === ''){
     if(response === ''){
       return new Date().toLocaleString('en-US', { timeZone: 'utc' })

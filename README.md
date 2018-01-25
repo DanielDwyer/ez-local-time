@@ -1,8 +1,8 @@
-
 # ez-local-time
 
-**Note: In Development! Expect Changes before March 1, 2018**
-**The 1st Stable Version (for production use) will be 1.0.0**
+**Note: In Development! Expect Changes before March 1, 2018. **
+** The 1st Stable Version (for production use) will be 1.0.0..**
+** I was shocked to see 96 downloads on day # 1. I will do my best to get this up and running. **
 
 ![Downloads](https://img.shields.io/npm/dw/ez-local-time.svg)
 ![Downloads](https://img.shields.io/npm/dm/ez-local-time.svg)
@@ -30,46 +30,55 @@ Install it via npm:
 npm i ez-local-time
 ```
 
+Require the Module:
+```shell
+const localTime = require('ez-local-time')
+```
+
+Now Put it To Work - It's Always On Time!
+
+Get Localized Time:
+```shell
+const DenverTime = localTime('Mountain', 't')
+```
+Get Localized Date:
+```shell
+const HollywoodDate = localTime('pacific', 'd')
+```
+Get Localized Time & Date:
+```shell
+const BigAppleTime&Date = localTime('east', '*')
+```
+
+## Parameters
+#### const varName = localTime([region], [response])
+##### [region] : 'Pacific' || 'Pac' || 'Mountain' || 'Mtn' || 'Central' || 'Cen' || 'East' || 'Eas' <> STRING
+NOTE: If you want to work outside the US (or in Alaska or Hawaii) just use the convention 'Country_Name/City_Name' i.e. 'America/Anchorage' or 'Czech_Republic/Prague' as your region input. It has worldwide functionality  and defaults to UTC time or GMT.
+##### [response] : 'time' || 't' || 'date' || 'd' || '*' <> STRING
+
 
 ## Example
 Note: If you are using ES6, i.e. React, (import and not require) you must compile your application code before interacting with the ez-local-time module.
+
+
 
 ```js
 'use strict'
 
 const localTime = require('ez-local-time')
 
-/*
-**
-How To Use
-**
-const varName = localTime([region], [response])
-**
-Pacific => [region] : America/Los_Angeles
-Mountain => [region] : America/Denver
-Central => [region] : America/Chicago
-East => [region] : America/New_York
-**
-Default => [region]: if the parameter is left blank or the parameter passed is a blank string defaults to UTC time
-**
-t => [response] : time only
-time => [response] : time only
-d => [response] : date only
-date => [response] : date only
-* => [response] : time and date
-*/
-
-const DenverDate = localTime('America/Denver', 'd')
+const DenverDate = localTime('Mtn', 'd')
 //returns '1/24/2018'
-const DenverTime = localTime('America/Denver', 'time')
+const DenverTime = localTime('mountain', 'time')
 //returns '10:30:24 AM'
 const DenverDateAndTime = localTime('America/Denver', '*')
 //returns '1/24/2018, 10:32:59 AM'
 
 ```
 
+
 ## In The Pipeline
-I am developing version 1.0.0 as a proof of concept. Many features have been placed in the ice box (for now). I am placing a developmental priority on compatibility with ES6, allowing the React.js community access to a basic local time library, aside from Moment.js. Additionally, am emphasis is placed on establishing defaults for the region parameter to reflect America's main four time zones. Expect those updates in version 2.0.0 by March 1, 2018. This is a community project, pull requests are welcome. Let's see where we can take this!
+I am developing version 1.0.0 as a proof of concept. Many features have been placed in the ice box (for now). I am placing a developmental priority on compatibility with ES6, allowing the React.js community access to a basic local time library, aside from Moment.js. Expect those updates in version 1.0.0 (the first stable production ready launch) by March 1, 2018. This is a community project, pull requests are welcome. Let's see where we can take this!
 
 ## License
 
