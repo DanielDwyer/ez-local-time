@@ -14,11 +14,11 @@ module.exports = function(region, response){
       return new Date().toLocaleString('en-US', { timeZone: 'utc' })
     }else if(!response){
       return new Date().toLocaleString('en-US', { timeZone: 'utc' })
-    }else if(response === 'date' || response === 'd'){
+    }else if(response === 'date' || response === 'd' || response === 'D'){
       var d = new Date().toLocaleString('en-US', { timeZone: 'utc' })
       d= d.substring(0, d.indexOf(','))
       return d;
-    }else if(response === 'time' || response === 't'){
+    }else if(response === 'time' || response === 't' || response === 'T'){
       var t = new Date().toLocaleString('en-US', { timeZone: 'utc' })
       t= t.substring(t.indexOf(',')+2, t.length)
       return t;
@@ -30,11 +30,11 @@ module.exports = function(region, response){
       return new Date().toLocaleString('en-US', { timeZone: 'utc' })
     }else if(!response){
       return new Date().toLocaleString('en-US', { timeZone: 'utc' })
-    }else if(response === 'date' || response === 'd'){
+    }else if(response === 'date' || response === 'd' || response === 'D'){
       var d = new Date().toLocaleString('en-US', { timeZone: 'utc' })
       d= d.substring(0, d.indexOf(','))
       return d;
-    }else if(response === 'time' || response === 't'){
+    }else if(response === 'time' || response === 't' || response === 'T'){
       var t = new Date().toLocaleString('en-US', { timeZone: 'utc' })
       t= t.substring(t.indexOf(',')+2, t.length)
       return t;
@@ -48,12 +48,12 @@ module.exports = function(region, response){
     }else if(!response){
       //date and time
         return new Date().toLocaleString('en-US', { timeZone: region })
-    }else if(response === 'date' || response === 'd'){
+    }else if(response === 'date' || response === 'd' || response === 'D'){
       //region specified & date only
         var d = new Date().toLocaleString('en-US', { timeZone: region })
         d= d.substring(0, d.indexOf(','))
         return d;
-    }else if(response === 'time' || response === 't'){
+    }else if(response === 'time' || response === 't' || response === 'T'){
       //time only
         var t = new Date().toLocaleString('en-US', { timeZone: region })
         t= t.substring(t.indexOf(',')+2, t.length)
