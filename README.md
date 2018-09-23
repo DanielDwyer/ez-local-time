@@ -10,7 +10,7 @@
 
 If you have ever tried to extract and use **date** and **time** in Javascript, you know that it can really be a hassle.
 **Never** deal with ```new Date``` or ```Date.now()``` again when trying to deal with local time or time zones.
-You provide the region and desired response format (time, date, or both) and get the local date/time for that region.
+You provide the region/timezone, or better yet let us detect it, and get the local date & time for that region/timezone.
 
 The **region** parameter follows a logical protocol: County/City, i.e. America/New_York .
 
@@ -28,49 +28,70 @@ npm i ez-local-time
 
 #### Require the Module:
 ```shell
-const localTime = require('ez-local-time')
+const ezlocalTime = require('ez-local-time')
 ```
 
 #### Now Put it To Work - It's Always On Time!
 ##### Examples
 
-#### Local Time & Date
+#### American Supported Timezones
 ```shell
-const DenverTimeDate = localTime('Mountain', '*')//4/4/2018, 7:42:17 AM
+const PacificTimeDate = ezlocalTime('West')
+/*
+returns:
+[ 'September',
+  '9/23/2018',
+  1537743656522,
+  '4:00:56',
+  'PM',
+  'America/Los_Angeles',
+  'Sunday' ]
+*/
 ```
 ```shell
-const DenverTimeDate = localTime('America/Denver', '*')//4/4/2018, 7:42:17 AM
+const MountainTimeDate = ezlocalTime('Mountain')
+/*
+returns:
+[ 'September',
+  '9/23/2018',
+  1537743656522,
+  '5:00:56',
+  'PM',
+  'America/Denver',
+  'Sunday' ]
+*/
 ```
 ```shell
-const NYCTimeDate = localTime('east', '')//4/4/2018, 9:42:17 AM
-```
-#### Local Time Only
-
-```shell
-const DenverTime = localTime('Mountain', 't')//7:42:17 AM
-```
-```shell
-const DenverTime = localTime('America/Denver', 't')//7:42:17 AM
-```
-```shell
-const NYCTime = localTime('east', 't')//9:42:17 AM
-```
-#### Local Date Only
-```shell
-const DenverDate = localTime('Mountain', 'd')//4/4/2018
+const CentralTimeDate = ezlocalTime('central')
+/*
+returns:
+[ 'September',
+  '9/23/2018',
+  1537743656522,
+  '6:00:56',
+  'PM',
+  'America/Chicago',
+  'Sunday' ]
+*/
 ```
 ```shell
-const mountainWestDate = localTime('America/Denver', 'd')//4/4/2018
-```
-```shell
-const NYCDate = localTime('east', 'D')//4/4/2018
+const EasternTimeDate = ezlocalTime('east')
+/*
+returns:
+[ 'September',
+  '9/23/2018',
+  1537743656522,
+  '7:00:56',
+  'PM',
+  'America/New_York',
+  'Sunday' ]
+*/
 ```
 
 ## Parameters
-#### const varName = localTime([region], [response])
-##### [region] : 'Pacific' || 'Pac' || 'Mountain' || 'Mtn' || 'Central' || 'Cen' || 'East' || 'Eas' <> STRING
-NOTE: If you want to work outside the US (or in Alaska or Hawaii) just use the convention 'Country_Name/City_Name' i.e. 'America/Anchorage' or 'Czech_Republic/Prague' as your region input. It has worldwide functionality  and defaults to UTC time or GMT.
-##### [response] : 'time' || 't' || 'date' || 'd' || '*' <> STRING
+#### const varName = localTime([region])
+##### [region] : 'West' || 'west' || 'Mountain' || 'mountain' || 'Central' || 'xentral' || 'East' || 'east' <> STRING
+NOTE: If you are working outside the US (or in Alaska or Hawaii) just use the convention 'Country_Name/City_Name' i.e. 'America/Anchorage' or 'Czech_Republic/Prague' as your region input. It has worldwide functionality  and defaults to UTC time or GMT.
 
 ```
 ## Available Time Zones
