@@ -1,7 +1,6 @@
 'use strict'
 module.exports = function(region){
-
-  region = region.toLowerCase()//standardize
+  (!region) ? region = '' : region = region.toLowerCase()//standardize
   let zone = ''//placeholder
   zone = region//start by assigning input region in lc format
 

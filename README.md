@@ -34,7 +34,22 @@ const ezlocalTime = require('ez-local-time')
 #### Now Put it To Work - It's Always On Time!
 ##### Examples
 
+```shell
+const EasternTimeDate = ezlocalTime()
+/*
+returns:
+[ 'September',
+  '9/23/2018',
+  1537743656522,
+  '7:00:56',
+  'PM',
+  'America/New_York',
+  'Sunday' ]
+*/
+```
+
 #### American Supported Timezones
+
 ```shell
 const PacificTimeDate = ezlocalTime('West')
 /*
