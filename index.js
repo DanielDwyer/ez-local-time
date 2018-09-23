@@ -28,19 +28,19 @@ var emptyResponse = localTime('America/Los_Angeles', '');
 //returns 1/24/2018, 10:32:59 AM
 console.log("emptyResponse:",emptyResponse);
 
-var pacificResponse = localTime('Pacific', '*');
+var pacificResponse = localTime('west', '*');
 //returns 1/24/2018, 10:32:59 AM
 console.log("pacificResponse:",pacificResponse);
 
-var mountainResponse = localTime('mtn', '*');
+var mountainResponse = localTime('mountain', '*');
 //returns 1/24/2018, 10:32:59 AM
 console.log("mountainResponse:",mountainResponse);
 
-var centralResponse = localTime('Central', '*');
+var centralResponse = localTime('central', '*');
 //returns 1/24/2018, 10:32:59 AM
 console.log("centralResponse:",centralResponse);
 
-var eastResponse = localTime('eas', '*');
+var eastResponse = localTime('East', '*');
 //returns 1/24/2018, 10:32:59 AM
 console.log("eastResponse:",eastResponse);
 

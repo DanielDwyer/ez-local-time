@@ -4,7 +4,7 @@
   "description": "Use raw Javascript to get local times and dates",
   "main": "app.js",
   "scripts": {
-    "test": "node tests.js"
+    "test": "./node_modules/.bin/mocha"
   },
   "repository": {
     "type": "git",
@@ -19,5 +19,9 @@
     "Date.now()"
   ],
   "author": "danielpatrickdwyer@gmail.com",
-  "license": "MIT"
+  "license": "MIT",
+  "devDependencies": {
+    "chai": "^4.1.2",
+    "mocha": "^5.2.0"
+  }
 }
