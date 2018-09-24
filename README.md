@@ -1,6 +1,8 @@
 # ez-local-time
 
-**Stable LTS**
+The easiest way to deal with local time in JavaScript. No heavy API, like Moment.js, just local time using the JavaScript API.
+
+**Stable LTS 1.0.2+**
 
 ![Downloads](https://img.shields.io/npm/dw/ez-local-time.svg)
 ![Downloads](https://img.shields.io/npm/dm/ez-local-time.svg)
@@ -43,7 +45,7 @@ returns:
   1537743656522,
   '7:00:56',
   'PM',
-  'America/New_York',
+  'America/New_York',//I am in NY so that is unique. If you are in LA, then it would detect LA.
   'Sunday' ]
 */
 ```
@@ -105,7 +107,7 @@ returns:
 
 ## Parameters
 #### const varName = localTime([region])
-##### [region] : 'West' || 'west' || 'Mountain' || 'mountain' || 'Central' || 'xentral' || 'East' || 'east' <> STRING
+##### [region] : 'West' || 'west' || 'Mountain' || 'mountain' || 'Central' || 'central' || 'East' || 'east' <> STRING
 NOTE: If you are working outside the US (or in Alaska or Hawaii) just use the convention 'Country_Name/City_Name' i.e. 'America/Anchorage' or 'Czech_Republic/Prague' as your region input. It has worldwide functionality  and defaults to UTC time or GMT.
 
 ```
