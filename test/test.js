@@ -1,14 +1,22 @@
 var expect  = require('chai').expect
 var ezlocalTime = require('../app.js')
 
-it('returning an array, length of 7', function(done) {
+it('no input returns localized', function(done) {
     let timeResponse = ezlocalTime()
     expect(typeof timeResponse === 'object' && timeResponse.length === 7).to.be.true
     done()
 })
 
+it('returning an array, length of 7', function(done) {
+    let timeResponse = ezlocalTime('west')
+    expect(typeof timeResponse === 'object' && timeResponse.length === 7).to.be.true
+    expect(timeResponse[5] === 'America/Los_Angeles').to.be.true
+    done()
+})
+
 it('correct month', function(done) {
-    let timeResponse = ezlocalTime()
+    let timeResponse = ezlocalTime('mountain')
+    expect(timeResponse[5] === 'America/Denver').to.be.true
     switch(timeResponse[1][0]+timeResponse[1][1]) {
         case '1/':
             expect(timeResponse[0] === 'January').to.be.true
