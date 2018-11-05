@@ -1,5 +1,9 @@
 'use strict'
 module.exports = function(region){
+  console.log("typeof region",typeof region);
+  if(typeof region === 'number'){
+    console.log("reduce",region/60);
+  }else{
   (!region) ? region = '' : region = region.toLowerCase()//standardize
   let zone = ''//placeholder
   zone = region//start by assigning input region in lc format
@@ -110,6 +114,5 @@ module.exports = function(region){
   }catch(e){
     return console.log("Our Error. Sorry. Please log issue on GitHub.",e)
   }
-
-
+  }
 }
