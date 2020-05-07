@@ -1,115 +1,112 @@
-'use strict'
-module.exports = function(region){
-  (!region) ? region = '' : region = region.toLowerCase()//standardize
-  let zone = ''//placeholder
-  zone = region//start by assigning input region in lc format
-
-  try{
-    if(region === 'west' || region === 'w') {zone = 'America/Los_Angeles'}
-    if(region === 'mountain' || region === 'm'){zone = 'America/Denver'}
-    if(region === 'central' || region === 'c'){zone = 'America/Chicago'}
-    if(region === 'east' || region === 'e'){zone = 'America/New_York'}
-    if(region === '' || region === ' '){zone = Intl.DateTimeFormat().resolvedOptions().timeZone}//local to user or server? not sure
-    try{
-      var today = new Date(new Date().toLocaleString('en-US', { timeZone: zone }))
-      var returnArray = new Date().toLocaleString('en-US', { timeZone: zone }).split(',')
-      returnArray.push(returnArray[1].split(' ')[1])
-      returnArray.push(returnArray[1].split(' ')[2])
-      switch(returnArray[0][0]+returnArray[0][1]) {
-          case '1/':
-              returnArray.unshift('January')
-              break;
-          case '2/':
-              returnArray.unshift('February')
-              break;
-          case '3/':
-              returnArray.unshift('March')
-              break;
-          case '4/':
-              returnArray.unshift('April')
-              break;
-          case '5/':
-              returnArray.unshift('May')
-              break;
-          case '6/':
-              returnArray.unshift('June')
-              break;
-          case '7/':
-              returnArray.unshift('July')
-              break;
-          case '8/':
-              returnArray.unshift('August')
-              break;
-          case '9/':
-              returnArray.unshift('September')
-              break;
-          case '10':
-              returnArray.unshift('October')
-              break;
-          case '11':
-              returnArray.unshift('November')
-              break;
-          case '12':
-              returnArray.unshift('Devember')
-              break;
-          default:
-              //opps
-              returnArray.push('Who Knows What Month It Is, We Do Not!')
-              return returnArray
-      }
-      try{
-        returnArray[2] = Date.now()
-        returnArray.push(zone)
-        switch(today.getDay()) {
-            case 0:
-                //sunday
-                returnArray.push('Sunday')
-                return returnArray
-                break;
-            case 1:
-                //monday
-                returnArray.push('Monday')
-                return returnArray
-                break;
-            case 2:
-                //tuesday
-                returnArray.push('Tuesday')
-                return returnArray
-                break;
-            case 3:
-                //wednesday
-                returnArray.push('Wednesday')
-                return returnArray
-                break;
-            case 4:
-                //thursday
-                returnArray.push('Thursday')
-                return returnArray
-                break;
-            case 5:
-                //friday
-                returnArray.push('Friday')
-                return returnArray
-                break;
-            case 6:
-                //saturday
-                returnArray.push('Saturday')
-                return returnArray
-                break;
-            default:
-                //opps
-                returnArray.push('Who Knows What Day It Is, We Do Not!')
-                return returnArray
-        }
-      }catch(e){
-        return console.log("Check Your Region - Not Recgnozied. Remember, case is unimportant.",e);
-      }
-    }catch(e){
-      return console.log("Cannot Assign Date and/or Month",e)
+'use strict';
+const timeZones = require('./timezones.js');
+module.exports = (region = '') => {
+    if (!region) region = Intl.DateTimeFormat().resolvedOptions().timeZone; // default to local
+    if (typeof region !== 'string') return { error: 'Unexpected region type.', data: null };
+    switch (region) {
+        case 'hawaii':
+            region = 'Hawaiian Standard Time';
+            break;
+        case 'alaska':
+            region = 'Alaskan Standard Time';
+            break;
+        case 'pacific':
+            region = 'America/Los_Angeles';
+            break;
+        case 'mountain7':
+            region = 'America/Phoenix';
+            break;
+        case 'mountain6':
+            region = 'America/Denver';
+            break;
+        case 'central':
+            region = 'Central Standard Time';
+            break;
+        case 'eastern':
+            region = 'Eastern Standard Time';
+            break;
+        default:
+            region = region;
     }
-  }catch(e){
-    return console.log("Our Error. Sorry. Please log issue on GitHub.",e)
-  }
-
-
+    const r = region.toLocaleLowerCase();
+    const [timeZone] = timeZones.filter((timeZone) => {
+        if (r === timeZone.value.toLowerCase()) return timeZone;
+        else if (r === timeZone.abbr.toLowerCase()) return timeZone;
+        else if (timeZone.utc.includes(region)) return timeZone; // case sensitive
+    });
+    const dateObject = {};
+    dateObject.timeZone = timeZone.utc[0];
+    dateObject.dateTime = new Date(new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }));
+    dateObject.date = new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',')[0];
+    dateObject.time = new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',')[1];
+    dateObject.utc = Date.now();
+    var returnArray = new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',');
+    returnArray.push(returnArray[1].split(' ')[1])
+    returnArray.push(returnArray[1].split(' ')[2])
+    switch(returnArray[0][0]+returnArray[0][1]) {
+        case '1/':
+            dateObject.month = 'January';
+            break;
+        case '2/':
+            dateObject.month = 'February';
+            break;
+        case '3/':
+            dateObject.month = 'March';
+            break;
+        case '4/':
+            dateObject.month = 'April';
+            break;
+        case '5/':
+            dateObject.month = 'May';
+            break;
+        case '6/':
+            dateObject.month = 'June';
+            break;
+        case '7/':
+            dateObject.month = 'July';
+            break;
+        case '8/':
+            dateObject.month = 'August';
+            break;
+        case '9/':
+            dateObject.month = 'September';
+            break;
+        case '10':
+            dateObject.month = 'October';
+            break;
+        case '11':
+            dateObject.month = 'November';
+            break;
+        case '12':
+            dateObject.month = 'Devember';
+            break;
+        default:
+            dateObject.month = undefined;
+    }
+    switch (dateObject.dateTime.getDay()) {
+        case 0:
+            dateObject.day = 'Sunday';
+            break;
+        case 1:
+            dateObject.day = 'Monday';
+            break;
+        case 2:
+            dateObject.day = 'Tuesday';
+            break;
+        case 3:
+            dateObject.day = 'Wednesday';
+            break;
+        case 4:
+            dateObject.day = 'Thursday';
+            break;
+        case 5:
+            dateObject.day = 'Friday';
+            break;
+        case 6:
+            dateObject.day = 'Saturday';
+            break;
+        default:
+            dateObject.day = undefined;
+    }
+    return dateObject;
 }

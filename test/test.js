@@ -1,6 +1,13 @@
 var expect  = require('chai').expect
 var ezlocalTime = require('../app.js')
 
+it.only('...', function (done) {
+    let timeResponse = ezlocalTime('Argentina Standard Time');
+    expect(typeof timeResponse === 'object').to.be.true;
+    expect(timeResponse.timeZone === 'America/Argentina/La_Rioja').to.be.true;
+    done();
+})
+
 it('no input returns localized', function(done) {
     let timeResponse = ezlocalTime()
     expect(typeof timeResponse === 'object' && timeResponse.length === 7).to.be.true
