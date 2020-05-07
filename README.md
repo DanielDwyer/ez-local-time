@@ -1,6 +1,6 @@
 # ez-local-time
 
-The easiest way to deal with local time, dates, and time zones in JavaScript. No heavy API, like Moment.js, just local time, dates, and time zones using the JavaScript Date API.
+The easiest way to deal with local times, dates, and time zones in JavaScript. No heavy API, like Moment.js, just local times, dates, and time zones using the JavaScript Date API.
 
 ![Downloads](https://img.shields.io/npm/dw/ez-local-time.svg)
 ![Downloads](https://img.shields.io/npm/dm/ez-local-time.svg)
@@ -8,13 +8,9 @@ The easiest way to deal with local time, dates, and time zones in JavaScript. No
 ![npm version](https://img.shields.io/npm/v/ez-local-time.svg)
 ![License](https://img.shields.io/npm/l/ez-local-time.svg)
 
-If you have ever tried to extract and use **date** and **time** in Javascript, you know that it can really be a real hassle amd pain in the ass.
+If you have ever tried to extract and use **dates** and **times** in Javascript, you know that it can really be a hassle and a real pain in the ass.
 **Never** deal with ```new Date``` or ```Date.now()``` again when trying to deal with local time, dates, or time zones.
 You provide the region/timezone, or better yet you can even let us detect it, and get the local date & time for that region/timezone.
-
-The **region** parameter follows a logical protocol: County/City, i.e. America/New_York .
-
-**Note** If a country or city is more than a single word, all words are capitalized and are separated by an underscore (as you can see above).
 
 ### See A Complete List of Supported Cities Below
 
@@ -39,78 +35,47 @@ ezlocalTime('Central Brazilian Standard Time');
 ##### Examples
 
 ```shell
-const EasternTimeDate = ezlocalTime(); // no region input
-/*
-returns:
-[ 'September',
-  '9/23/2018',
-  1537743656522,
-  '7:00:56',
-  'PM',
-  'America/New_York',//I am in NY so that is unique. If you are in LA, then it would detect LA.
-  'Sunday' ]
-*/
+const dateObject = ezlocalTime(); // no region input
+dateObject = {
+  timeZone: 'America/New_York',
+  dateTime: 2020-05-07T13:25:36.000Z,
+  date: '5/7/2020',
+  time: ' 9:25:36 AM',
+  utc: 1588857936432,
+  month: 'May',
+  day: 'Thursday'
+};
 ```
 
-#### American Supported Timezones
-
 ```shell
-const PacificTimeDate = ezlocalTime('West')
-/*
-returns:
-[ 'September',
-  '9/23/2018',
-  1537743656522,
-  '4:00:56',
-  'PM',
-  'America/Los_Angeles',
-  'Sunday' ]
-*/
-```
-```shell
-const MountainTimeDate = ezlocalTime('Mountain')
-/*
-returns:
-[ 'September',
-  '9/23/2018',
-  1537743656522,
-  '5:00:56',
-  'PM',
-  'America/Denver',
-  'Sunday' ]
-*/
-```
-```shell
-const CentralTimeDate = ezlocalTime('central')
-/*
-returns:
-[ 'September',
-  '9/23/2018',
-  1537743656522,
-  '6:00:56',
-  'PM',
-  'America/Chicago',
-  'Sunday' ]
-*/
-```
-```shell
-const EasternTimeDate = ezlocalTime('east')
-/*
-returns:
-[ 'September',
-  '9/23/2018',
-  1537743656522,
-  '7:00:56',
-  'PM',
-  'America/New_York',
-  'Sunday' ]
-*/
+const dateObject = ezlocalTime('Atlantic/Bermuda');
+dateObject = {
+  timeZone: 'Atlantic/Bermuda',
+  dateTime: 2020-05-07T14:25:16.000Z,
+  date: '5/7/2020',
+  time: ' 10:25:16 AM',
+  utc: 1588857916139,
+  month: 'May',
+  day: 'Thursday'
+};
 ```
 
-## Parameters
-#### const varName = localTime([region])
-##### [region] : 'West' || 'west' || 'Mountain' || 'mountain' || 'Central' || 'central' || 'East' || 'east' <> STRING
-NOTE: If you are working outside the US (or in Alaska or Hawaii) just use the convention 'Country_Name/City_Name' i.e. 'America/Anchorage' or 'Czech_Republic/Prague' as your region input. It has worldwide functionality  and defaults to UTC time or GMT.
+```shell
+const dateObject = ezlocalTime('Arabic Standard Time');
+dateObject = {
+  timeZone: 'Arabic Standard Time',
+  dateTime: 2020-05-07T20:27:21.000Z,
+  date: '5/7/2020',
+  time: ' 4:27:21 PM',
+  utc: 1588858041576,
+  month: 'May',
+  day: 'Thursday'
+};
+```
+
+
+## Parameters 
+### (for a complete list look at the timezones.js file, you can use 'value', 'abbr', or 'utc' values as region input)
 
 ```
 ## Available Time Zones
@@ -534,10 +499,11 @@ Pacific/Fakaofo
 Pacific/Tongatapu
 Pacific/Apia
 ```
+
 ## License
 
 MIT
-Copyright 2018 Daniel P. Dwyer
+Copyright 2020 Daniel P. Dwyer
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

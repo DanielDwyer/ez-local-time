@@ -35,7 +35,7 @@ module.exports = (region = '') => {
         else if (timeZone.utc.includes(region)) return timeZone; // case sensitive
     });
     const dateObject = {};
-    dateObject.timeZone = timeZone.utc[0];
+    dateObject.timeZone = region;
     dateObject.dateTime = new Date(new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }));
     dateObject.date = new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',')[0];
     dateObject.time = new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',')[1];
