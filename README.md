@@ -1,8 +1,6 @@
 # ez-local-time
 
-The easiest way to deal with local time in JavaScript. No heavy API, like Moment.js, just local time using the JavaScript API.
-
-**Stable LTS 1.0.2+**
+The easiest way to deal with local time, dates, and time zones in JavaScript. No heavy API, like Moment.js, just local time, dates, and time zones using the JavaScript Date API.
 
 ![Downloads](https://img.shields.io/npm/dw/ez-local-time.svg)
 ![Downloads](https://img.shields.io/npm/dm/ez-local-time.svg)
@@ -10,9 +8,9 @@ The easiest way to deal with local time in JavaScript. No heavy API, like Moment
 ![npm version](https://img.shields.io/npm/v/ez-local-time.svg)
 ![License](https://img.shields.io/npm/l/ez-local-time.svg)
 
-If you have ever tried to extract and use **date** and **time** in Javascript, you know that it can really be a hassle.
-**Never** deal with ```new Date``` or ```Date.now()``` again when trying to deal with local time or time zones.
-You provide the region/timezone, or better yet let us detect it, and get the local date & time for that region/timezone.
+If you have ever tried to extract and use **date** and **time** in Javascript, you know that it can really be a real hassle amd pain in the ass.
+**Never** deal with ```new Date``` or ```Date.now()``` again when trying to deal with local time, dates, or time zones.
+You provide the region/timezone, or better yet you can even let us detect it, and get the local date & time for that region/timezone.
 
 The **region** parameter follows a logical protocol: County/City, i.e. America/New_York .
 
@@ -34,10 +32,14 @@ const ezlocalTime = require('ez-local-time')
 ```
 
 #### Now Put it To Work - It's Always On Time!
+##### To use
+```shell
+ezlocalTime('Central Brazilian Standard Time');
+```
 ##### Examples
 
 ```shell
-const EasternTimeDate = ezlocalTime()
+const EasternTimeDate = ezlocalTime(); // no region input
 /*
 returns:
 [ 'September',

@@ -2,7 +2,8 @@ var expect  = require('chai').expect
 var ezlocalTime = require('../app.js')
 
 it.only('...', function (done) {
-    let timeResponse = ezlocalTime('Argentina Standard Time');
+    let timeResponse = ezlocalTime();
+    console.log('timeResponse:', timeResponse);
     expect(typeof timeResponse === 'object').to.be.true;
     expect(timeResponse.timeZone === 'America/Argentina/La_Rioja').to.be.true;
     done();
