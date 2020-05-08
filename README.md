@@ -514,7 +514,7 @@ Pacific/Apia
 ```
 
 ## Thank You
-Thanks to https://fans.zoom.us/j/84989883334 for providing the timezones JSON.
+Thanks to https://github.com/dmfilipenko/timezones.json for providing the timezones JSON.
 
 ## License
 
