@@ -35,12 +35,13 @@ module.exports = (region = '') => {
         else if (timeZone.utc.includes(region)) return timeZone; // case sensitive
     });
     const dateObject = {};
-    dateObject.timeZone = region;
-    dateObject.dateTime = new Date(new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }));
-    dateObject.date = new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',')[0];
-    dateObject.time = new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',')[1];
     dateObject.utc = Date.now();
-    var returnArray = new Date().toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',');
+    const master = new Date();
+    dateObject.timeZone = region;
+    dateObject.dateTime = new Date(master.toLocaleString('en-US', { timeZone: timeZone.utc[0] }));
+    dateObject.date = master.toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',')[0];
+    dateObject.time = master.toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',')[1];
+    var returnArray = master.toLocaleString('en-US', { timeZone: timeZone.utc[0] }).split(',');
     returnArray.push(returnArray[1].split(' ')[1])
     returnArray.push(returnArray[1].split(' ')[2])
     switch(returnArray[0][0]+returnArray[0][1]) {

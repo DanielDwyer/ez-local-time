@@ -75,6 +75,19 @@ dateObject = {
 
 
 ## Parameters 
+
+### American Regions
+You can use these optional regions for American timezones:
+```
+Hawaii
+Alaska
+Pacific
+Mountain7
+Mountain6
+Central
+Eastern
+```
+
 ### (for a complete list look at the timezones.js file, you can use 'value', 'abbr', or 'utc' values as region input)
 
 ```
@@ -499,6 +512,9 @@ Pacific/Fakaofo
 Pacific/Tongatapu
 Pacific/Apia
 ```
+
+## Thank You
+Thanks to https://fans.zoom.us/j/84989883334 for providing the timezones JSON.
 
 ## License
 
