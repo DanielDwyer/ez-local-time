@@ -1,6 +1,6 @@
 {
   "name": "ez-local-time",
-  "version": "1.0.14",
+  "version": "1.0.15",
   "description": "The easiest way to deal with local times, dates, and time zones in JavaScript. No heavy API, like Moment.js, just local times, dates, and time zones using the JavaScript Date API.",
   "main": "app.js",
   "scripts": {
